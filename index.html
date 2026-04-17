@@ -4,28 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vici Design | Premium Software & Web Design Studio</title>
-  <meta name="description" content="Vici Design builds premium websites, modern interfaces and custom software solutions for ambitious brands." />
+  <meta name="description" content="Vici Design builds premium websites, elegant interfaces and custom software solutions for modern brands." />
   <meta name="theme-color" content="#020617" />
+  <meta name="keywords" content="web design, software, UI UX, agency, premium website, Vici Design" />
+  <meta property="og:title" content="Vici Design | Premium Software & Web Design Studio" />
+  <meta property="og:description" content="Premium websites, modern interfaces and custom software solutions for ambitious brands." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23020617'/%3E%3Ccircle cx='250' cy='180' r='180' fill='%2306b6d4' fill-opacity='0.18'/%3E%3Ccircle cx='980' cy='120' r='200' fill='%233b82f6' fill-opacity='0.18'/%3E%3Ctext x='100' y='290' fill='white' font-size='84' font-family='Arial' font-weight='700'%3EVici Design%3C/text%3E%3Ctext x='100' y='370' fill='%23cbd5e1' font-size='34' font-family='Arial'%3EPremium Software %26 Web Design Studio%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23020617'/%3E%3Cpath d='M14 14h10l8 28 8-28h10L36 50h-8L14 14z' fill='%2322d3ee'/%3E%3C/svg%3E" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: Inter, Arial, sans-serif; }
     .glass {
       background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
-    .hero-glow::before {
+    .grid-pattern {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 34px 34px;
+    }
+    .hero-bg::before {
       content: "";
       position: absolute;
-      inset: -20%;
+      inset: -10%;
       background:
-        radial-gradient(circle at 20% 20%, rgba(34,211,238,0.20), transparent 22%),
-        radial-gradient(circle at 80% 30%, rgba(59,130,246,0.16), transparent 24%),
-        radial-gradient(circle at 50% 80%, rgba(14,165,233,0.12), transparent 28%);
-      filter: blur(30px);
-      z-index: 0;
+        radial-gradient(circle at 15% 20%, rgba(34,211,238,0.16), transparent 20%),
+        radial-gradient(circle at 82% 18%, rgba(59,130,246,0.18), transparent 22%),
+        radial-gradient(circle at 50% 80%, rgba(6,182,212,0.10), transparent 26%);
+      filter: blur(42px);
       pointer-events: none;
+      z-index: 0;
     }
     .gradient-text {
       background: linear-gradient(90deg, #ffffff 0%, #67e8f9 45%, #60a5fa 100%);
@@ -34,25 +46,44 @@
       color: transparent;
     }
     .card-hover {
-      transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+      transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease, background .28s ease;
     }
     .card-hover:hover {
-      transform: translateY(-6px);
-      border-color: rgba(34,211,238,0.35);
-      box-shadow: 0 20px 50px rgba(2, 132, 199, 0.15);
+      transform: translateY(-7px);
+      border-color: rgba(34,211,238,0.34);
+      box-shadow: 0 24px 60px rgba(2,132,199,0.14);
     }
     .fade-up {
-      animation: fadeUp .8s ease both;
+      opacity: 0;
+      transform: translateY(22px);
+      animation: fadeUp .85s ease forwards;
     }
+    .fade-up.delay-1 { animation-delay: .1s; }
+    .fade-up.delay-2 { animation-delay: .2s; }
+    .fade-up.delay-3 { animation-delay: .3s; }
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .grid-pattern {
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 32px 32px;
+    .project-shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .project-shine::after {
+      content: "";
+      position: absolute;
+      top: -120%;
+      left: -40%;
+      width: 50%;
+      height: 250%;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
+      transform: rotate(20deg);
+    }
+    .project-shine:hover::after {
+      transition: left 0.9s ease;
+      left: 120%;
+    }
+    .logo-mark svg {
+      filter: drop-shadow(0 0 12px rgba(34,211,238,.18));
     }
   </style>
 </head>
@@ -63,11 +94,13 @@
   <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
       <a href="#home" class="flex items-center gap-3">
-        <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-cyan-400/10 text-lg font-black text-cyan-400 ring-1 ring-cyan-400/20">
-          V
+        <div class="logo-mark flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-400/10 ring-1 ring-cyan-400/20">
+          <svg width="24" height="24" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path d="M14 14h10l8 28 8-28h10L36 50h-8L14 14z" fill="#22d3ee"></path>
+          </svg>
         </div>
         <div>
-          <div class="text-xl font-black tracking-tight text-white">Vici Design</div>
+          <div class="text-xl font-black tracking-tight">Vici Design</div>
           <div class="text-xs text-slate-400">Premium Software & Web Studio</div>
         </div>
       </a>
@@ -76,20 +109,44 @@
         <a href="#home" class="transition hover:text-cyan-400">Home</a>
         <a href="#services" class="transition hover:text-cyan-400">Services</a>
         <a href="#process" class="transition hover:text-cyan-400">Process</a>
+        <a href="#projects" class="transition hover:text-cyan-400">Projects</a>
         <a href="#about" class="transition hover:text-cyan-400">About</a>
         <a href="#team" class="transition hover:text-cyan-400">Team</a>
         <a href="#faq" class="transition hover:text-cyan-400">FAQ</a>
         <a href="#contact" class="transition hover:text-cyan-400">Contact</a>
       </nav>
 
-      <a href="#contact" class="rounded-2xl bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950 transition hover:scale-105">
-        Start a Project
-      </a>
+      <div class="flex items-center gap-3">
+        <button id="menuBtn" class="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 md:hidden" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+        <a href="#contact" class="hidden rounded-2xl bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950 transition hover:scale-105 md:inline-block">
+          Start a Project
+        </a>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden border-t border-white/10 bg-slate-950/95 px-6 py-5 md:hidden">
+      <div class="flex flex-col gap-4 text-sm text-slate-300">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#process" class="mobile-link">Process</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#team" class="mobile-link">Team</a>
+        <a href="#faq" class="mobile-link">FAQ</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="#contact" class="mt-2 rounded-2xl bg-cyan-400 px-4 py-3 text-center font-bold text-slate-950">
+          Start a Project
+        </a>
+      </div>
     </div>
   </header>
 
   <!-- HERO -->
-  <section id="home" class="hero-glow relative overflow-hidden pt-28">
+  <section id="home" class="hero-bg relative overflow-hidden pt-28">
     <div class="absolute inset-0 grid-pattern opacity-40"></div>
     <div class="relative mx-auto grid min-h-[96vh] max-w-7xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
       <div class="fade-up">
@@ -98,20 +155,20 @@
         </div>
 
         <h1 class="max-w-4xl text-5xl font-black leading-tight md:text-7xl">
-          We build <span class="gradient-text">premium digital experiences</span> for modern brands
+          We craft <span class="gradient-text">luxury-level digital experiences</span> for brands that want to lead
         </h1>
 
         <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-          Vici Design creates elegant websites, conversion-focused interfaces and scalable software solutions
-          for companies that want to look stronger, smarter and more premium online.
+          Vici Design creates elegant websites, refined user interfaces and scalable software solutions
+          for companies that want to appear stronger, sharper and more valuable online.
         </p>
 
         <div class="mt-8 flex flex-wrap gap-4">
           <a href="#contact" class="rounded-2xl bg-cyan-400 px-6 py-3 font-bold text-slate-950 transition hover:scale-105">
             Let’s Work Together
           </a>
-          <a href="#services" class="rounded-2xl border border-white/15 px-6 py-3 font-semibold text-white transition hover:bg-white/5">
-            Explore Services
+          <a href="#projects" class="rounded-2xl border border-white/15 px-6 py-3 font-semibold text-white transition hover:bg-white/5">
+            View Projects
           </a>
         </div>
 
@@ -126,12 +183,12 @@
           </div>
           <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
             <div class="text-3xl font-black text-cyan-400">Global</div>
-            <div class="mt-2 text-sm text-slate-400">International brand feel</div>
+            <div class="mt-2 text-sm text-slate-400">International positioning</div>
           </div>
         </div>
       </div>
 
-      <div class="fade-up relative">
+      <div class="fade-up delay-2 relative">
         <div class="glass rounded-[30px] border border-white/10 p-4 shadow-2xl">
           <div class="rounded-[26px] border border-white/10 bg-slate-900 p-6">
             <div class="mb-6 flex gap-2">
@@ -175,7 +232,7 @@
     </div>
   </section>
 
-  <!-- STATS -->
+  <!-- TRUST BAR -->
   <section class="mx-auto max-w-7xl px-6 py-6">
     <div class="grid gap-4 md:grid-cols-4">
       <div class="rounded-3xl border border-white/10 bg-white/5 p-6 text-center">
@@ -192,7 +249,7 @@
       </div>
       <div class="rounded-3xl border border-white/10 bg-white/5 p-6 text-center">
         <div class="text-3xl font-black text-cyan-400">Global</div>
-        <div class="mt-2 text-sm text-slate-300">International positioning</div>
+        <div class="mt-2 text-sm text-slate-300">International feel</div>
       </div>
     </div>
   </section>
@@ -201,7 +258,7 @@
   <section id="services" class="mx-auto max-w-7xl px-6 py-24">
     <div class="max-w-2xl">
       <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">Services</p>
-      <h2 class="mt-4 text-3xl font-black md:text-5xl">Solutions that make your brand look stronger</h2>
+      <h2 class="mt-4 text-3xl font-black md:text-5xl">Digital solutions that elevate perception</h2>
       <p class="mt-5 text-lg leading-8 text-slate-300">
         We combine aesthetics, functionality and clarity to create digital products that feel premium and perform with purpose.
       </p>
@@ -212,16 +269,16 @@
         <div class="text-4xl">🎨</div>
         <h3 class="mt-5 text-2xl font-bold">Web Design</h3>
         <p class="mt-4 leading-7 text-slate-300">
-          Elegant, modern and brand-focused websites that create trust and leave a strong first impression.
+          Elegant, modern and brand-focused websites that create trust and leave a powerful first impression.
         </p>
-        <div class="mt-6 text-sm font-semibold text-cyan-400">Premium visuals • clean structure</div>
+        <div class="mt-6 text-sm font-semibold text-cyan-400">Luxury visuals • strategic structure</div>
       </div>
 
       <div class="card-hover rounded-[28px] border border-white/10 bg-white/5 p-8">
         <div class="text-4xl">🧠</div>
         <h3 class="mt-5 text-2xl font-bold">UI / UX Design</h3>
         <p class="mt-4 leading-7 text-slate-300">
-          Smooth interfaces and thoughtful user journeys designed to make products easier, clearer and more enjoyable.
+          Smooth interfaces and thoughtful user journeys designed to make products easier, clearer and more desirable.
         </p>
         <div class="mt-6 text-sm font-semibold text-cyan-400">Flow • clarity • usability</div>
       </div>
@@ -230,7 +287,7 @@
         <div class="text-4xl">💻</div>
         <h3 class="mt-5 text-2xl font-bold">Software Solutions</h3>
         <p class="mt-4 leading-7 text-slate-300">
-          Tailored digital systems and scalable software built around your business needs and long-term growth.
+          Tailored digital systems and scalable software built around business goals and long-term growth.
         </p>
         <div class="mt-6 text-sm font-semibold text-cyan-400">Custom systems • scalable approach</div>
       </div>
@@ -242,7 +299,7 @@
     <div class="mx-auto max-w-7xl px-6">
       <div class="max-w-2xl">
         <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">Process</p>
-        <h2 class="mt-4 text-3xl font-black md:text-5xl">A clear and effective way of working</h2>
+        <h2 class="mt-4 text-3xl font-black md:text-5xl">A sharp and efficient workflow</h2>
         <p class="mt-5 text-lg leading-8 text-slate-300">
           Every strong project begins with structure. Our process is simple, strategic and focused on quality.
         </p>
@@ -252,12 +309,12 @@
         <div class="rounded-[28px] border border-white/10 bg-white/5 p-8">
           <div class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">01</div>
           <h3 class="mt-4 text-xl font-bold">Discovery</h3>
-          <p class="mt-3 leading-7 text-slate-300">We understand your brand, goals and the image you want to create.</p>
+          <p class="mt-3 leading-7 text-slate-300">We learn your brand, goals and the perception you want to create.</p>
         </div>
         <div class="rounded-[28px] border border-white/10 bg-white/5 p-8">
           <div class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">02</div>
           <h3 class="mt-4 text-xl font-bold">Strategy</h3>
-          <p class="mt-3 leading-7 text-slate-300">We define structure, user flow and the overall digital direction.</p>
+          <p class="mt-3 leading-7 text-slate-300">We define structure, positioning and the overall user direction.</p>
         </div>
         <div class="rounded-[28px] border border-white/10 bg-white/5 p-8">
           <div class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">03</div>
@@ -267,61 +324,99 @@
         <div class="rounded-[28px] border border-white/10 bg-white/5 p-8">
           <div class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">04</div>
           <h3 class="mt-4 text-xl font-bold">Launch</h3>
-          <p class="mt-3 leading-7 text-slate-300">We deliver a ready-to-use solution that feels professional from day one.</p>
+          <p class="mt-3 leading-7 text-slate-300">We deliver a ready-to-use solution that feels premium from day one.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHY US -->
-  <section class="mx-auto max-w-7xl px-6 py-24">
-    <div class="grid items-center gap-12 md:grid-cols-2">
-      <div class="rounded-[32px] border border-white/10 bg-white/5 p-8 md:p-10">
-        <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">Why Vici Design</p>
-        <h2 class="mt-4 text-3xl font-black md:text-5xl">More than a website, a stronger digital identity</h2>
-        <p class="mt-6 text-lg leading-8 text-slate-300">
-          We do not just make pages look nice. We shape the way a brand feels online:
-          more polished, more trustworthy and more valuable.
-        </p>
+  <!-- PROJECTS -->
+  <section id="projects" class="mx-auto max-w-7xl px-6 py-24">
+    <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <div class="max-w-2xl">
+        <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">Projects</p>
+        <h2 class="mt-4 text-3xl font-black md:text-5xl">Selected project directions</h2>
+      </div>
+      <p class="max-w-xl text-slate-300">
+        These showcase concepts reflect the level of visual quality, positioning and structure we can build for brands.
+      </p>
+    </div>
 
-        <div class="mt-8 grid gap-4 sm:grid-cols-2">
-          <div class="rounded-2xl border border-white/10 p-5">
-            <h3 class="text-lg font-bold">Premium Look</h3>
-            <p class="mt-2 text-sm text-slate-400">Clean, sharp and modern visuals that elevate perception.</p>
-          </div>
-          <div class="rounded-2xl border border-white/10 p-5">
-            <h3 class="text-lg font-bold">Smart Structure</h3>
-            <p class="mt-2 text-sm text-slate-400">Thoughtful sections and layouts that feel clear and intentional.</p>
-          </div>
-          <div class="rounded-2xl border border-white/10 p-5">
-            <h3 class="text-lg font-bold">User Focus</h3>
-            <p class="mt-2 text-sm text-slate-400">Interfaces designed around comfort, flow and usability.</p>
-          </div>
-          <div class="rounded-2xl border border-white/10 p-5">
-            <h3 class="text-lg font-bold">Global Feel</h3>
-            <p class="mt-2 text-sm text-slate-400">A refined digital presence suitable for international markets.</p>
-          </div>
-        </div>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      <div class="project-shine card-hover rounded-[28px] border border-white/10 bg-slate-900 p-6">
+        <div class="h-56 rounded-3xl bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.35),transparent_30%),linear-gradient(135deg,#0f172a,#111827,#0f172a)] border border-white/10"></div>
+        <span class="mt-5 inline-flex rounded-full bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">Corporate</span>
+        <h3 class="mt-4 text-2xl font-bold">Executive Brand Website</h3>
+        <p class="mt-3 leading-7 text-slate-300">A premium digital presence tailored for stronger first impressions and higher trust.</p>
       </div>
 
-      <div class="grid gap-6">
-        <div class="rounded-[28px] bg-gradient-to-br from-cyan-400 to-blue-600 p-8 text-slate-950">
-          <div class="text-sm font-bold uppercase tracking-[0.3em]">Approach</div>
-          <div class="mt-4 text-3xl font-black">Design + Strategy + Software</div>
-          <p class="mt-4 text-base font-medium leading-7">
-            Our work sits at the intersection of aesthetics, product thinking and practical execution.
+      <div class="project-shine card-hover rounded-[28px] border border-white/10 bg-slate-900 p-6">
+        <div class="h-56 rounded-3xl bg-[radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.35),transparent_30%),linear-gradient(135deg,#111827,#0f172a,#111827)] border border-white/10"></div>
+        <span class="mt-5 inline-flex rounded-full bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">Product</span>
+        <h3 class="mt-4 text-2xl font-bold">Landing Page System</h3>
+        <p class="mt-3 leading-7 text-slate-300">A sharp conversion-focused page built for launches, campaigns and lead generation.</p>
+      </div>
+
+      <div class="project-shine card-hover rounded-[28px] border border-white/10 bg-slate-900 p-6">
+        <div class="h-56 rounded-3xl bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.28),transparent_26%),linear-gradient(135deg,#0b1120,#111827,#0b1120)] border border-white/10"></div>
+        <span class="mt-5 inline-flex rounded-full bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">Software</span>
+        <h3 class="mt-4 text-2xl font-bold">Custom Dashboard Interface</h3>
+        <p class="mt-3 leading-7 text-slate-300">An elegant interface approach for systems that need clarity, control and speed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="bg-white/[0.03] py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="grid items-center gap-12 md:grid-cols-2">
+        <div class="rounded-[32px] border border-white/10 bg-white/5 p-8 md:p-10">
+          <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">Why Vici Design</p>
+          <h2 class="mt-4 text-3xl font-black md:text-5xl">More than a website, a stronger digital identity</h2>
+          <p class="mt-6 text-lg leading-8 text-slate-300">
+            We do not just make pages look good. We shape the way a brand feels online:
+            more polished, more trustworthy and more valuable.
           </p>
+
+          <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border border-white/10 p-5">
+              <h3 class="text-lg font-bold">Premium Look</h3>
+              <p class="mt-2 text-sm text-slate-400">Clean, sharp and modern visuals that elevate perception.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 p-5">
+              <h3 class="text-lg font-bold">Smart Structure</h3>
+              <p class="mt-2 text-sm text-slate-400">Thoughtful sections and layouts that feel intentional.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 p-5">
+              <h3 class="text-lg font-bold">User Focus</h3>
+              <p class="mt-2 text-sm text-slate-400">Interfaces designed around comfort, flow and usability.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 p-5">
+              <h3 class="text-lg font-bold">Global Feel</h3>
+              <p class="mt-2 text-sm text-slate-400">A refined presence suitable for international markets.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="rounded-[28px] border border-white/10 bg-white/5 p-8">
-          <h3 class="text-2xl font-bold">What defines our work</h3>
-          <div class="mt-5 grid gap-3 text-slate-300 sm:grid-cols-2">
-            <div class="rounded-2xl bg-white/5 px-4 py-3">Clear visual hierarchy</div>
-            <div class="rounded-2xl bg-white/5 px-4 py-3">Elegant dark themes</div>
-            <div class="rounded-2xl bg-white/5 px-4 py-3">Conversion-focused layouts</div>
-            <div class="rounded-2xl bg-white/5 px-4 py-3">Smooth user flow</div>
-            <div class="rounded-2xl bg-white/5 px-4 py-3">Brand-led storytelling</div>
-            <div class="rounded-2xl bg-white/5 px-4 py-3">Scalable build quality</div>
+        <div class="grid gap-6">
+          <div class="rounded-[28px] bg-gradient-to-br from-cyan-400 to-blue-600 p-8 text-slate-950">
+            <div class="text-sm font-bold uppercase tracking-[0.3em]">Approach</div>
+            <div class="mt-4 text-3xl font-black">Design + Strategy + Software</div>
+            <p class="mt-4 text-base font-medium leading-7">
+              Our work sits at the intersection of aesthetics, product thinking and practical execution.
+            </p>
+          </div>
+
+          <div class="rounded-[28px] border border-white/10 bg-white/5 p-8">
+            <h3 class="text-2xl font-bold">What defines our work</h3>
+            <div class="mt-5 grid gap-3 text-slate-300 sm:grid-cols-2">
+              <div class="rounded-2xl bg-white/5 px-4 py-3">Clear visual hierarchy</div>
+              <div class="rounded-2xl bg-white/5 px-4 py-3">Elegant dark themes</div>
+              <div class="rounded-2xl bg-white/5 px-4 py-3">Conversion-focused layouts</div>
+              <div class="rounded-2xl bg-white/5 px-4 py-3">Smooth user flow</div>
+              <div class="rounded-2xl bg-white/5 px-4 py-3">Brand-led storytelling</div>
+              <div class="rounded-2xl bg-white/5 px-4 py-3">Scalable build quality</div>
+            </div>
           </div>
         </div>
       </div>
@@ -329,14 +424,14 @@
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="bg-white/[0.03] py-24">
-    <div class="mx-auto grid max-w-7xl items-center gap-12 px-6 md:grid-cols-2">
+  <section id="about" class="mx-auto max-w-7xl px-6 py-24">
+    <div class="grid items-center gap-12 md:grid-cols-2">
       <div>
         <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">About</p>
-        <h2 class="mt-4 text-3xl font-black md:text-5xl">A design studio built around clarity, taste and execution</h2>
+        <h2 class="mt-4 text-3xl font-black md:text-5xl">A studio built around clarity, taste and execution</h2>
         <p class="mt-6 text-lg leading-8 text-slate-300">
           Vici Design is a creative digital studio focused on premium web design, interface systems and tailored software solutions.
-          We help brands present themselves with greater confidence and a sharper visual identity.
+          We help brands present themselves with more confidence and a sharper visual identity.
         </p>
         <p class="mt-4 text-lg leading-8 text-slate-300">
           Our goal is simple: create work that looks refined, feels modern and supports real business growth.
@@ -367,156 +462,206 @@
   </section>
 
   <!-- TEAM -->
-  <section id="team" class="mx-auto max-w-7xl px-6 py-24">
-    <div class="max-w-2xl">
-      <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">Founders</p>
-      <h2 class="mt-4 text-3xl font-black md:text-5xl">The team behind Vici Design</h2>
-      <p class="mt-5 text-lg leading-8 text-slate-300">
-        Different strengths, one shared direction: building stronger digital brands through thoughtful design and execution.
-      </p>
-    </div>
-
-    <div class="mt-12 grid gap-6 md:grid-cols-3">
-      <div class="card-hover rounded-[28px] border border-white/10 bg-white/5 p-8 text-center">
-        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cyan-400/10 text-2xl font-bold text-cyan-400">H</div>
-        <h3 class="mt-5 text-2xl font-bold">Muhammed Çiftci</h3>
-        <p class="mt-2 text-sm uppercase tracking-[0.25em] text-cyan-400">Co-Founder</p>
-        <p class="mt-4 leading-7 text-slate-300">Creative direction, brand perspective and digital project vision.</p>
+  <section id="team" class="bg-white/[0.03] py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="max-w-2xl">
+        <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">Founders</p>
+        <h2 class="mt-4 text-3xl font-black md:text-5xl">The team behind Vici Design</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-300">
+          Different strengths, one shared direction: building stronger digital brands through thoughtful design and execution.
+        </p>
       </div>
 
-      <div class="card-hover rounded-[28px] border border-white/10 bg-white/5 p-8 text-center">
-        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cyan-400/10 text-2xl font-bold text-cyan-400">M</div>
-        <h3 class="mt-5 text-2xl font-bold">Hakkı Alper Can</h3>
-        <p class="mt-2 text-sm uppercase tracking-[0.25em] text-cyan-400">Co-Founder</p>
-        <p class="mt-4 leading-7 text-slate-300">Product details, interface thinking and user-focused experience design.</p>
-      </div>
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        <div class="card-hover rounded-[28px] border border-white/10 bg-white/5 p-8 text-center">
+          <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cyan-400/10 text-2xl font-bold text-cyan-400">M</div>
+          <h3 class="mt-5 text-2xl font-bold">Muhammed Çiftci</h3>
+          <p class="mt-2 text-sm uppercase tracking-[0.25em] text-cyan-400">Co-Founder</p>
+          <p class="mt-4 leading-7 text-slate-300">Product details, interface thinking and user-focused experience design.</p>
+        </div>
 
-      <div class="card-hover rounded-[28px] border border-white/10 bg-white/5 p-8 text-center">
-        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cyan-400/10 text-2xl font-bold text-cyan-400">E</div>
-        <h3 class="mt-5 text-2xl font-bold">Ege Adil Kartal</h3>
-        <p class="mt-2 text-sm uppercase tracking-[0.25em] text-cyan-400">Co-Founder</p>
-        <p class="mt-4 leading-7 text-slate-300">Technical execution, software structure and scalable digital systems.</p>
+        <div class="card-hover rounded-[28px] border border-white/10 bg-white/5 p-8 text-center">
+          <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cyan-400/10 text-2xl font-bold text-cyan-400">H</div>
+          <h3 class="mt-5 text-2xl font-bold">Hakkı Alper Can</h3>
+          <p class="mt-2 text-sm uppercase tracking-[0.25em] text-cyan-400">Co-Founder</p>
+          <p class="mt-4 leading-7 text-slate-300">Creative direction, brand perspective and digital project vision.</p>
+        </div>
+
+        <div class="card-hover rounded-[28px] border border-white/10 bg-white/5 p-8 text-center">
+          <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cyan-400/10 text-2xl font-bold text-cyan-400">E</div>
+          <h3 class="mt-5 text-2xl font-bold">Ege Adil Kartal</h3>
+          <p class="mt-2 text-sm uppercase tracking-[0.25em] text-cyan-400">Co-Founder</p>
+          <p class="mt-4 leading-7 text-slate-300">Technical execution, software architecture and scalable digital systems.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="bg-white/[0.03] py-24">
-    <div class="mx-auto max-w-5xl px-6">
-      <div class="max-w-2xl">
-        <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">FAQ</p>
-        <h2 class="mt-4 text-3xl font-black md:text-5xl">Frequently asked questions</h2>
-      </div>
+  <section id="faq" class="mx-auto max-w-5xl px-6 py-24">
+    <div class="max-w-2xl">
+      <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">FAQ</p>
+      <h2 class="mt-4 text-3xl font-black md:text-5xl">Frequently asked questions</h2>
+    </div>
 
-      <div class="mt-12 space-y-4">
-        <details class="rounded-2xl border border-white/10 bg-white/5 p-6">
-          <summary class="cursor-pointer text-lg font-bold">What kind of projects do you take on?</summary>
-          <p class="mt-4 leading-7 text-slate-300">
-            We work on brand websites, corporate websites, landing pages, interface systems and custom software solutions.
-          </p>
-        </details>
+    <div class="mt-12 space-y-4">
+      <details class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <summary class="cursor-pointer text-lg font-bold">What kind of projects do you take on?</summary>
+        <p class="mt-4 leading-7 text-slate-300">
+          We work on brand websites, corporate websites, landing pages, interface systems and custom software solutions.
+        </p>
+      </details>
 
-        <details class="rounded-2xl border border-white/10 bg-white/5 p-6">
-          <summary class="cursor-pointer text-lg font-bold">Do you work internationally?</summary>
-          <p class="mt-4 leading-7 text-slate-300">
-            Yes. Vici Design is open to international collaborations and remote digital projects.
-          </p>
-        </details>
+      <details class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <summary class="cursor-pointer text-lg font-bold">Do you work internationally?</summary>
+        <p class="mt-4 leading-7 text-slate-300">
+          Yes. Vici Design is open to international collaborations and remote digital projects.
+        </p>
+      </details>
 
-        <details class="rounded-2xl border border-white/10 bg-white/5 p-6">
-          <summary class="cursor-pointer text-lg font-bold">Can you redesign an existing website?</summary>
-          <p class="mt-4 leading-7 text-slate-300">
-            Absolutely. We can improve the visual quality, structure, user experience and overall perception of your current site.
-          </p>
-        </details>
+      <details class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <summary class="cursor-pointer text-lg font-bold">Can you redesign an existing website?</summary>
+        <p class="mt-4 leading-7 text-slate-300">
+          Absolutely. We can improve the visual quality, structure, user experience and overall perception of your current site.
+        </p>
+      </details>
 
-        <details class="rounded-2xl border border-white/10 bg-white/5 p-6">
-          <summary class="cursor-pointer text-lg font-bold">How do we start?</summary>
-          <p class="mt-4 leading-7 text-slate-300">
-            The fastest way is to contact us via WhatsApp and briefly tell us about your project goals.
-          </p>
-        </details>
-      </div>
+      <details class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <summary class="cursor-pointer text-lg font-bold">How do we start?</summary>
+        <p class="mt-4 leading-7 text-slate-300">
+          The fastest way is to contact us via WhatsApp or email and briefly tell us about your project.
+        </p>
+      </details>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="mx-auto max-w-7xl px-6 py-24">
-    <div class="grid gap-10 md:grid-cols-2">
+  <section id="contact" class="bg-white/[0.03] py-24">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2">
       <div>
         <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">Contact</p>
-        <h2 class="mt-4 text-3xl font-black md:text-5xl">Let’s create something sharp together</h2>
+        <h2 class="mt-4 text-3xl font-black md:text-5xl">Let’s create something exceptional together</h2>
         <p class="mt-6 max-w-xl text-lg leading-8 text-slate-300">
           If you want a stronger website, a more refined interface or a premium digital presence, let’s talk.
         </p>
 
         <div class="mt-8 space-y-4 text-slate-300">
           <div>📍 Europe</div>
-          <div>📱 WhatsApp: +44 7529 4524477</div>
+          <div>📱 WhatsApp: +44 7529 452477</div>
+          <div>✉️ Email: hello@vicidesign.studio</div>
+          <div>🌐 Domain: vicidesign.studio</div>
           <div>🕒 Available for international work</div>
         </div>
 
         <div class="mt-8 flex flex-wrap gap-4">
-          <a href="https://wa.me/4475294524477" target="_blank" class="rounded-2xl bg-green-500 px-5 py-3 font-bold text-white transition hover:scale-105">
+          <a href="https://wa.me/447529452477" target="_blank" class="rounded-2xl bg-green-500 px-5 py-3 font-bold text-white transition hover:scale-105">
             Message on WhatsApp
           </a>
-          <a href="#home" class="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 font-semibold transition hover:bg-white/10">
-            Back to Top
+          <a href="mailto:hello@vicidesign.studio" class="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 font-semibold transition hover:bg-white/10">
+            Send Email
           </a>
         </div>
       </div>
 
+      <!-- FORMSPREE READY -->
       <div class="rounded-[32px] border border-white/10 bg-white/5 p-8">
-        <h3 class="text-2xl font-bold">Quick Contact</h3>
+        <h3 class="text-2xl font-bold">Project Inquiry</h3>
         <p class="mt-3 text-slate-400">
-          The fastest way to reach us is directly via WhatsApp.
+          This form is ready for Formspree. Replace the action URL with your own Formspree endpoint.
         </p>
 
-        <div class="mt-8 grid gap-5">
-          <div class="rounded-2xl border border-white/10 bg-slate-900 px-4 py-4">
-            <div class="text-sm text-slate-400">Studio</div>
-            <div class="mt-1 font-semibold text-white">Vici Design</div>
-          </div>
+        <!-- REPLACE xxxxxxx WITH YOUR FORM ID -->
+        <form
+          id="contactForm"
+          action="https://formspree.io/f/mwvaopzv"
+          method="POST"
+          class="mt-8 grid gap-5"
+        >
+          <input type="hidden" name="_subject" value="New Project Inquiry - Vici Design Website" />
+          <input type="hidden" name="_captcha" value="false" />
 
-          <div class="rounded-2xl border border-white/10 bg-slate-900 px-4 py-4">
-            <div class="text-sm text-slate-400">Region</div>
-            <div class="mt-1 font-semibold text-white">Europe</div>
-          </div>
+          <input name="name" type="text" placeholder="Your name" class="rounded-2xl border border-white/10 bg-slate-900 px-4 py-4 text-white outline-none placeholder:text-slate-500 focus:border-cyan-400" required />
+          <input name="email" type="email" placeholder="Your email" class="rounded-2xl border border-white/10 bg-slate-900 px-4 py-4 text-white outline-none placeholder:text-slate-500 focus:border-cyan-400" required />
+          <input name="company" type="text" placeholder="Company / Brand" class="rounded-2xl border border-white/10 bg-slate-900 px-4 py-4 text-white outline-none placeholder:text-slate-500 focus:border-cyan-400" />
+          <select name="service" class="rounded-2xl border border-white/10 bg-slate-900 px-4 py-4 text-white outline-none focus:border-cyan-400">
+            <option>Web Design</option>
+            <option>UI / UX Design</option>
+            <option>Software Solution</option>
+            <option>Full Project</option>
+          </select>
+          <textarea name="message" rows="5" placeholder="Tell us about your project" class="rounded-2xl border border-white/10 bg-slate-900 px-4 py-4 text-white outline-none placeholder:text-slate-500 focus:border-cyan-400" required></textarea>
 
-          <div class="rounded-2xl border border-white/10 bg-slate-900 px-4 py-4">
-            <div class="text-sm text-slate-400">Primary Contact</div>
-            <div class="mt-1 font-semibold text-white">+44 7529 4524477</div>
-          </div>
-
-          <a href="https://wa.me/4475294524477" target="_blank" class="rounded-2xl bg-cyan-400 px-6 py-4 text-center font-bold text-slate-950 transition hover:scale-[1.02]">
-            Send a Message Now
-          </a>
-        </div>
+          <button type="submit" class="rounded-2xl bg-cyan-400 px-6 py-4 text-center font-bold text-slate-950 transition hover:scale-[1.02]">
+            Send Inquiry
+          </button>
+          <p id="formInfo" class="text-sm text-slate-400">Form submissions will go to your Formspree inbox and email.</p>
+        </form>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="border-t border-white/10 bg-slate-950">
-    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
-      <div>© 2026 Vici Design. All rights reserved.</div>
-      <div class="flex flex-wrap gap-4">
+    <div class="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between">
+      <div>
+        <div class="flex items-center gap-3">
+          <div class="logo-mark flex h-10 w-10 items-center justify-center rounded-2xl bg-cyan-400/10 ring-1 ring-cyan-400/20">
+            <svg width="22" height="22" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <path d="M14 14h10l8 28 8-28h10L36 50h-8L14 14z" fill="#22d3ee"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="text-lg font-black">Vici Design</div>
+            <div class="text-sm text-slate-400">Premium Software & Web Studio</div>
+          </div>
+        </div>
+        <p class="mt-4 max-w-md text-sm leading-6 text-slate-400">
+          We build modern websites, elegant interfaces and tailored software for brands that want to look premium online.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-3 text-sm text-slate-400">
         <a href="#home" class="transition hover:text-cyan-400">Home</a>
         <a href="#services" class="transition hover:text-cyan-400">Services</a>
+        <a href="#projects" class="transition hover:text-cyan-400">Projects</a>
         <a href="#about" class="transition hover:text-cyan-400">About</a>
         <a href="#contact" class="transition hover:text-cyan-400">Contact</a>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10">
+      <div class="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-5 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
+        <div>© <span id="year"></span> Vici Design. All rights reserved.</div>
+        <div>Designed for a premium digital presence.</div>
       </div>
     </div>
   </footer>
 
   <!-- FLOATING WHATSAPP -->
   <a
-    href="https://wa.me/4475294524477"
+    href="https://wa.me/447529452477"
     target="_blank"
     class="fixed bottom-5 right-5 z-50 rounded-full bg-green-500 px-5 py-4 font-bold text-white shadow-2xl transition hover:scale-105 hover:bg-green-600"
   >
     WhatsApp
   </a>
 
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const year = document.getElementById('year');
+    year.textContent = new Date().getFullYear();
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
 </body>
 </html>
