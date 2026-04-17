@@ -1,122 +1,173 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Atlas Kurumsal | Modern Şirket Sitesi</title>
-  <meta name="description" content="Kurumsal web tasarım, yazılım çözümleri, dijital dönüşüm ve profesyonel şirket sitesi hizmetleri." />
+  <title>Vici Design | Premium Software & Web Design Studio</title>
+  <meta name="description" content="Vici Design builds premium websites, modern interfaces and custom software solutions for ambitious brands." />
+  <meta name="theme-color" content="#020617" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
-    body { font-family: Arial, sans-serif; }
+    body { font-family: Inter, Arial, sans-serif; }
+    .glass {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .hero-glow::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(34,211,238,0.20), transparent 22%),
+        radial-gradient(circle at 80% 30%, rgba(59,130,246,0.16), transparent 24%),
+        radial-gradient(circle at 50% 80%, rgba(14,165,233,0.12), transparent 28%);
+      filter: blur(30px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff 0%, #67e8f9 45%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .card-hover {
+      transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      border-color: rgba(34,211,238,0.35);
+      box-shadow: 0 20px 50px rgba(2, 132, 199, 0.15);
+    }
+    .fade-up {
+      animation: fadeUp .8s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .grid-pattern {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
   </style>
 </head>
-<body class="bg-slate-950 text-white">
+
+<body class="bg-slate-950 text-white selection:bg-cyan-400 selection:text-slate-950">
 
   <!-- HEADER -->
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div>
-        <h1 class="text-2xl font-bold tracking-tight text-cyan-400">Atlas Kurumsal</h1>
-        <p class="text-xs text-slate-400">Güven Veren Dijital Çözümler</p>
-      </div>
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <a href="#home" class="flex items-center gap-3">
+        <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-cyan-400/10 text-lg font-black text-cyan-400 ring-1 ring-cyan-400/20">
+          V
+        </div>
+        <div>
+          <div class="text-xl font-black tracking-tight text-white">Vici Design</div>
+          <div class="text-xs text-slate-400">Premium Software & Web Studio</div>
+        </div>
+      </a>
 
-      <nav class="hidden md:flex gap-6 text-sm text-slate-300">
-        <a href="#anasayfa" class="hover:text-cyan-400 transition">Ana Sayfa</a>
-        <a href="#hizmetler" class="hover:text-cyan-400 transition">Hizmetler</a>
-        <a href="#hakkimizda" class="hover:text-cyan-400 transition">Hakkımızda</a>
-        <a href="#projeler" class="hover:text-cyan-400 transition">Projeler</a>
-        <a href="#referanslar" class="hover:text-cyan-400 transition">Referanslar</a>
-        <a href="#iletisim" class="hover:text-cyan-400 transition">İletişim</a>
+      <nav class="hidden items-center gap-6 text-sm text-slate-300 md:flex">
+        <a href="#home" class="transition hover:text-cyan-400">Home</a>
+        <a href="#services" class="transition hover:text-cyan-400">Services</a>
+        <a href="#process" class="transition hover:text-cyan-400">Process</a>
+        <a href="#about" class="transition hover:text-cyan-400">About</a>
+        <a href="#team" class="transition hover:text-cyan-400">Team</a>
+        <a href="#faq" class="transition hover:text-cyan-400">FAQ</a>
+        <a href="#contact" class="transition hover:text-cyan-400">Contact</a>
       </nav>
 
-      <a href="#iletisim" class="bg-cyan-400 text-slate-950 px-4 py-2 rounded-xl font-semibold hover:scale-105 transition">
-        Teklif Al
+      <a href="#contact" class="rounded-2xl bg-cyan-400 px-4 py-2 text-sm font-bold text-slate-950 transition hover:scale-105">
+        Start a Project
       </a>
     </div>
   </header>
 
   <!-- HERO -->
-  <section id="anasayfa" class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.18),transparent_20%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.14),transparent_25%)]"></div>
-
-    <div class="max-w-7xl mx-auto px-6 py-24 md:py-32 grid md:grid-cols-2 gap-12 items-center relative">
-      <div>
-        <div class="inline-block px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-300 text-sm mb-5">
-          Kurumsal Web Tasarım • Yazılım • Dijital Çözüm
+  <section id="home" class="hero-glow relative overflow-hidden pt-28">
+    <div class="absolute inset-0 grid-pattern opacity-40"></div>
+    <div class="relative mx-auto grid min-h-[96vh] max-w-7xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
+      <div class="fade-up">
+        <div class="mb-5 inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
+          Premium websites • modern interfaces • custom software
         </div>
 
-        <h2 class="text-4xl md:text-6xl font-bold leading-tight">
-          Şirketiniz için <span class="text-cyan-400">güçlü, modern ve güven veren</span> bir dijital vitrin
-        </h2>
+        <h1 class="max-w-4xl text-5xl font-black leading-tight md:text-7xl">
+          We build <span class="gradient-text">premium digital experiences</span> for modern brands
+        </h1>
 
-        <p class="mt-6 text-slate-300 text-lg leading-8 max-w-xl">
-          Atlas Kurumsal olarak markaların dijital dünyada güçlü görünmesini sağlayan
-          kurumsal internet siteleri, özel yazılım çözümleri ve modern kullanıcı deneyimleri sunuyoruz.
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+          Vici Design creates elegant websites, conversion-focused interfaces and scalable software solutions
+          for companies that want to look stronger, smarter and more premium online.
         </p>
 
         <div class="mt-8 flex flex-wrap gap-4">
-          <a href="#iletisim" class="bg-cyan-400 text-slate-950 px-6 py-3 rounded-2xl font-bold hover:scale-105 transition">
-            Hemen Başlayalım
+          <a href="#contact" class="rounded-2xl bg-cyan-400 px-6 py-3 font-bold text-slate-950 transition hover:scale-105">
+            Let’s Work Together
           </a>
-          <a href="#projeler" class="border border-white/15 px-6 py-3 rounded-2xl font-semibold hover:bg-white/5 transition">
-            Projeleri İncele
+          <a href="#services" class="rounded-2xl border border-white/15 px-6 py-3 font-semibold text-white transition hover:bg-white/5">
+            Explore Services
           </a>
         </div>
 
-        <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
-            <div class="text-2xl font-bold text-cyan-400">120+</div>
-            <div class="text-sm text-slate-400">Tamamlanan Proje</div>
+        <div class="mt-10 grid gap-4 sm:grid-cols-3">
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+            <div class="text-3xl font-black text-cyan-400">Premium</div>
+            <div class="mt-2 text-sm text-slate-400">High-end visual identity</div>
           </div>
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
-            <div class="text-2xl font-bold text-cyan-400">%98</div>
-            <div class="text-sm text-slate-400">Memnuniyet</div>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+            <div class="text-3xl font-black text-cyan-400">Fast</div>
+            <div class="mt-2 text-sm text-slate-400">Optimized performance</div>
           </div>
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
-            <div class="text-2xl font-bold text-cyan-400">7/24</div>
-            <div class="text-sm text-slate-400">Destek</div>
-          </div>
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
-            <div class="text-2xl font-bold text-cyan-400">10+</div>
-            <div class="text-sm text-slate-400">Yıllık Deneyim</div>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+            <div class="text-3xl font-black text-cyan-400">Global</div>
+            <div class="mt-2 text-sm text-slate-400">International brand feel</div>
           </div>
         </div>
       </div>
 
-      <div class="bg-white/5 border border-white/10 rounded-[28px] p-5 shadow-2xl">
-        <div class="bg-slate-900 border border-white/10 rounded-[24px] p-6">
-          <div class="flex gap-2 mb-6">
-            <span class="w-3 h-3 rounded-full bg-red-400"></span>
-            <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
-            <span class="w-3 h-3 rounded-full bg-green-400"></span>
-          </div>
-
-          <div class="rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 p-6 text-slate-950">
-            <div class="text-sm uppercase font-bold tracking-widest">Kurumsal Çözüm</div>
-            <div class="text-2xl font-bold mt-2">Profesyonel Şirket Sitesi</div>
-            <div class="mt-2 font-medium">Güçlü tasarım, hızlı yapı, yüksek güven</div>
-          </div>
-
-          <div class="grid md:grid-cols-2 gap-4 mt-4">
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
-              <div class="text-sm text-slate-400">Açılış Hızı</div>
-              <div class="text-3xl font-bold mt-2">0.9 sn</div>
+      <div class="fade-up relative">
+        <div class="glass rounded-[30px] border border-white/10 p-4 shadow-2xl">
+          <div class="rounded-[26px] border border-white/10 bg-slate-900 p-6">
+            <div class="mb-6 flex gap-2">
+              <span class="h-3 w-3 rounded-full bg-red-400"></span>
+              <span class="h-3 w-3 rounded-full bg-yellow-400"></span>
+              <span class="h-3 w-3 rounded-full bg-green-400"></span>
             </div>
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
-              <div class="text-sm text-slate-400">Mobil Uyum</div>
-              <div class="text-3xl font-bold mt-2">%100</div>
-            </div>
-          </div>
 
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-5 mt-4">
-            <div class="text-sm text-slate-400 mb-3">Hazır Özellikler</div>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-2 rounded-full bg-white/10 text-sm">Kurumsal Tasarım</span>
-              <span class="px-3 py-2 rounded-full bg-white/10 text-sm">SEO Altyapısı</span>
-              <span class="px-3 py-2 rounded-full bg-white/10 text-sm">Hızlı Açılış</span>
-              <span class="px-3 py-2 rounded-full bg-white/10 text-sm">İletişim Formu</span>
-              <span class="px-3 py-2 rounded-full bg-white/10 text-sm">Mobil Uyum</span>
+            <div class="rounded-3xl bg-gradient-to-r from-cyan-400 to-blue-500 p-6 text-slate-950">
+              <div class="text-xs font-bold uppercase tracking-[0.35em]">Vici Design</div>
+              <div class="mt-3 text-3xl font-black">Software & Web Design</div>
+              <p class="mt-3 max-w-md font-medium">
+                Design-driven digital products crafted for companies that want to stand out.
+              </p>
+            </div>
+
+            <div class="mt-4 grid gap-4 md:grid-cols-2">
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <div class="text-sm text-slate-400">UI Quality</div>
+                <div class="mt-2 text-3xl font-black">A+</div>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <div class="text-sm text-slate-400">Execution</div>
+                <div class="mt-2 text-3xl font-black">Sharp</div>
+              </div>
+            </div>
+
+            <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div class="mb-3 text-sm text-slate-400">What we build</div>
+              <div class="flex flex-wrap gap-2 text-sm">
+                <span class="rounded-full bg-white/10 px-3 py-2">Corporate Sites</span>
+                <span class="rounded-full bg-white/10 px-3 py-2">Landing Pages</span>
+                <span class="rounded-full bg-white/10 px-3 py-2">UI/UX Systems</span>
+                <span class="rounded-full bg-white/10 px-3 py-2">Brand Websites</span>
+                <span class="rounded-full bg-white/10 px-3 py-2">Custom Software</span>
+              </div>
             </div>
           </div>
         </div>
@@ -124,251 +175,348 @@
     </div>
   </section>
 
-  <!-- HIZMETLER -->
-  <section id="hizmetler" class="max-w-7xl mx-auto px-6 py-24">
+  <!-- STATS -->
+  <section class="mx-auto max-w-7xl px-6 py-6">
+    <div class="grid gap-4 md:grid-cols-4">
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6 text-center">
+        <div class="text-3xl font-black text-cyan-400">Premium</div>
+        <div class="mt-2 text-sm text-slate-300">Design standard</div>
+      </div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6 text-center">
+        <div class="text-3xl font-black text-cyan-400">UI/UX</div>
+        <div class="mt-2 text-sm text-slate-300">User-first systems</div>
+      </div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6 text-center">
+        <div class="text-3xl font-black text-cyan-400">Software</div>
+        <div class="mt-2 text-sm text-slate-300">Built for growth</div>
+      </div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6 text-center">
+        <div class="text-3xl font-black text-cyan-400">Global</div>
+        <div class="mt-2 text-sm text-slate-300">International positioning</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="mx-auto max-w-7xl px-6 py-24">
     <div class="max-w-2xl">
-      <p class="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold">Hizmetler</p>
-      <h2 class="text-3xl md:text-5xl font-bold mt-4">Şirketiniz için uçtan uca dijital çözümler</h2>
-      <p class="text-slate-300 mt-5 text-lg leading-8">
-        Markanızın dijital görünümünü güçlendiren tasarım, yazılım ve performans çözümleri sunuyoruz.
+      <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">Services</p>
+      <h2 class="mt-4 text-3xl font-black md:text-5xl">Solutions that make your brand look stronger</h2>
+      <p class="mt-5 text-lg leading-8 text-slate-300">
+        We combine aesthetics, functionality and clarity to create digital products that feel premium and perform with purpose.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6 mt-12">
-      <div class="bg-white/5 border border-white/10 rounded-[28px] p-8 hover:-translate-y-1 transition">
-        <div class="text-4xl">🏢</div>
-        <h3 class="text-2xl font-bold mt-5">Kurumsal Web Tasarım</h3>
-        <p class="text-slate-300 mt-4 leading-7">
-          Güven veren, profesyonel ve modern şirket internet siteleri tasarlıyoruz.
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      <div class="card-hover rounded-[28px] border border-white/10 bg-white/5 p-8">
+        <div class="text-4xl">🎨</div>
+        <h3 class="mt-5 text-2xl font-bold">Web Design</h3>
+        <p class="mt-4 leading-7 text-slate-300">
+          Elegant, modern and brand-focused websites that create trust and leave a strong first impression.
         </p>
+        <div class="mt-6 text-sm font-semibold text-cyan-400">Premium visuals • clean structure</div>
       </div>
 
-      <div class="bg-white/5 border border-white/10 rounded-[28px] p-8 hover:-translate-y-1 transition">
+      <div class="card-hover rounded-[28px] border border-white/10 bg-white/5 p-8">
+        <div class="text-4xl">🧠</div>
+        <h3 class="mt-5 text-2xl font-bold">UI / UX Design</h3>
+        <p class="mt-4 leading-7 text-slate-300">
+          Smooth interfaces and thoughtful user journeys designed to make products easier, clearer and more enjoyable.
+        </p>
+        <div class="mt-6 text-sm font-semibold text-cyan-400">Flow • clarity • usability</div>
+      </div>
+
+      <div class="card-hover rounded-[28px] border border-white/10 bg-white/5 p-8">
         <div class="text-4xl">💻</div>
-        <h3 class="text-2xl font-bold mt-5">Özel Yazılım Çözümleri</h3>
-        <p class="text-slate-300 mt-4 leading-7">
-          Yönetim paneli, takip sistemi, teklif formu ve işletmeye özel yazılım projeleri geliştiriyoruz.
+        <h3 class="mt-5 text-2xl font-bold">Software Solutions</h3>
+        <p class="mt-4 leading-7 text-slate-300">
+          Tailored digital systems and scalable software built around your business needs and long-term growth.
         </p>
-      </div>
-
-      <div class="bg-white/5 border border-white/10 rounded-[28px] p-8 hover:-translate-y-1 transition">
-        <div class="text-4xl">🚀</div>
-        <h3 class="text-2xl font-bold mt-5">SEO ve Performans</h3>
-        <p class="text-slate-300 mt-4 leading-7">
-          Daha hızlı açılan, Google dostu ve dönüşüm odaklı internet siteleri hazırlıyoruz.
-        </p>
+        <div class="mt-6 text-sm font-semibold text-cyan-400">Custom systems • scalable approach</div>
       </div>
     </div>
   </section>
 
-  <!-- HAKKIMIZDA -->
-  <section id="hakkimizda" class="bg-white/[0.03] py-24">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-      <div class="bg-white/5 border border-white/10 rounded-[32px] p-8 md:p-10">
-        <p class="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold">Hakkımızda</p>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">Sadece güzel değil, sonuç getiren siteler</h2>
-        <p class="text-slate-300 mt-6 text-lg leading-8">
-          İnternet sitesi sadece vitrin değildir; markanızın güven algısını, müşteri dönüşlerini
-          ve profesyonel duruşunu doğrudan etkiler. Bu yüzden tasarımı, altyapıyı ve kullanıcı deneyimini birlikte ele alıyoruz.
+  <!-- PROCESS -->
+  <section id="process" class="bg-white/[0.03] py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="max-w-2xl">
+        <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">Process</p>
+        <h2 class="mt-4 text-3xl font-black md:text-5xl">A clear and effective way of working</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-300">
+          Every strong project begins with structure. Our process is simple, strategic and focused on quality.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-4">
+        <div class="rounded-[28px] border border-white/10 bg-white/5 p-8">
+          <div class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">01</div>
+          <h3 class="mt-4 text-xl font-bold">Discovery</h3>
+          <p class="mt-3 leading-7 text-slate-300">We understand your brand, goals and the image you want to create.</p>
+        </div>
+        <div class="rounded-[28px] border border-white/10 bg-white/5 p-8">
+          <div class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">02</div>
+          <h3 class="mt-4 text-xl font-bold">Strategy</h3>
+          <p class="mt-3 leading-7 text-slate-300">We define structure, user flow and the overall digital direction.</p>
+        </div>
+        <div class="rounded-[28px] border border-white/10 bg-white/5 p-8">
+          <div class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">03</div>
+          <h3 class="mt-4 text-xl font-bold">Design & Build</h3>
+          <p class="mt-3 leading-7 text-slate-300">We design and develop a polished product with attention to detail.</p>
+        </div>
+        <div class="rounded-[28px] border border-white/10 bg-white/5 p-8">
+          <div class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">04</div>
+          <h3 class="mt-4 text-xl font-bold">Launch</h3>
+          <p class="mt-3 leading-7 text-slate-300">We deliver a ready-to-use solution that feels professional from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="mx-auto max-w-7xl px-6 py-24">
+    <div class="grid items-center gap-12 md:grid-cols-2">
+      <div class="rounded-[32px] border border-white/10 bg-white/5 p-8 md:p-10">
+        <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">Why Vici Design</p>
+        <h2 class="mt-4 text-3xl font-black md:text-5xl">More than a website, a stronger digital identity</h2>
+        <p class="mt-6 text-lg leading-8 text-slate-300">
+          We do not just make pages look nice. We shape the way a brand feels online:
+          more polished, more trustworthy and more valuable.
         </p>
 
-        <div class="grid sm:grid-cols-2 gap-4 mt-8">
-          <div class="border border-white/10 rounded-2xl p-5">
-            <h3 class="font-bold text-lg">Mobil Öncelikli</h3>
-            <p class="text-slate-400 mt-2 text-sm">Telefon, tablet ve masaüstünde sorunsuz görünüm.</p>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl border border-white/10 p-5">
+            <h3 class="text-lg font-bold">Premium Look</h3>
+            <p class="mt-2 text-sm text-slate-400">Clean, sharp and modern visuals that elevate perception.</p>
           </div>
-          <div class="border border-white/10 rounded-2xl p-5">
-            <h3 class="font-bold text-lg">Kolay Yönetim</h3>
-            <p class="text-slate-400 mt-2 text-sm">İçeriklerinizi rahatça güncelleyebileceğiniz yapı.</p>
+          <div class="rounded-2xl border border-white/10 p-5">
+            <h3 class="text-lg font-bold">Smart Structure</h3>
+            <p class="mt-2 text-sm text-slate-400">Thoughtful sections and layouts that feel clear and intentional.</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 p-5">
+            <h3 class="text-lg font-bold">User Focus</h3>
+            <p class="mt-2 text-sm text-slate-400">Interfaces designed around comfort, flow and usability.</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 p-5">
+            <h3 class="text-lg font-bold">Global Feel</h3>
+            <p class="mt-2 text-sm text-slate-400">A refined digital presence suitable for international markets.</p>
           </div>
         </div>
       </div>
 
-      <div class="space-y-6">
-        <div class="rounded-[28px] bg-gradient-to-br from-cyan-400 to-blue-600 text-slate-950 p-8">
-          <p class="uppercase text-sm font-bold tracking-widest">Neden Biz?</p>
-          <h3 class="text-3xl font-bold mt-3">Tasarım + Yazılım + Strateji</h3>
-          <p class="mt-4 leading-7 font-medium">
-            Markanız için yalnızca estetik bir site değil, aynı zamanda hızlı, güven veren ve dönüşüm sağlayan bir sistem kuruyoruz.
+      <div class="grid gap-6">
+        <div class="rounded-[28px] bg-gradient-to-br from-cyan-400 to-blue-600 p-8 text-slate-950">
+          <div class="text-sm font-bold uppercase tracking-[0.3em]">Approach</div>
+          <div class="mt-4 text-3xl font-black">Design + Strategy + Software</div>
+          <p class="mt-4 text-base font-medium leading-7">
+            Our work sits at the intersection of aesthetics, product thinking and practical execution.
           </p>
         </div>
 
         <div class="rounded-[28px] border border-white/10 bg-white/5 p-8">
-          <h3 class="text-2xl font-bold">Hazır Kurumsal Özellikler</h3>
-          <div class="grid sm:grid-cols-2 gap-3 mt-5 text-slate-300">
-            <div class="bg-white/5 rounded-2xl p-4">Mobil uyumlu tasarım</div>
-            <div class="bg-white/5 rounded-2xl p-4">SEO uyumlu yapı</div>
-            <div class="bg-white/5 rounded-2xl p-4">İletişim formu</div>
-            <div class="bg-white/5 rounded-2xl p-4">Hızlı açılış</div>
-            <div class="bg-white/5 rounded-2xl p-4">WhatsApp iletişimi</div>
-            <div class="bg-white/5 rounded-2xl p-4">Kurumsal sayfa yapısı</div>
+          <h3 class="text-2xl font-bold">What defines our work</h3>
+          <div class="mt-5 grid gap-3 text-slate-300 sm:grid-cols-2">
+            <div class="rounded-2xl bg-white/5 px-4 py-3">Clear visual hierarchy</div>
+            <div class="rounded-2xl bg-white/5 px-4 py-3">Elegant dark themes</div>
+            <div class="rounded-2xl bg-white/5 px-4 py-3">Conversion-focused layouts</div>
+            <div class="rounded-2xl bg-white/5 px-4 py-3">Smooth user flow</div>
+            <div class="rounded-2xl bg-white/5 px-4 py-3">Brand-led storytelling</div>
+            <div class="rounded-2xl bg-white/5 px-4 py-3">Scalable build quality</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJELER -->
-  <section id="projeler" class="max-w-7xl mx-auto px-6 py-24">
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-      <div class="max-w-2xl">
-        <p class="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold">Projeler</p>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">Örnek çalışmalar ve proje yapıları</h2>
+  <!-- ABOUT -->
+  <section id="about" class="bg-white/[0.03] py-24">
+    <div class="mx-auto grid max-w-7xl items-center gap-12 px-6 md:grid-cols-2">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">About</p>
+        <h2 class="mt-4 text-3xl font-black md:text-5xl">A design studio built around clarity, taste and execution</h2>
+        <p class="mt-6 text-lg leading-8 text-slate-300">
+          Vici Design is a creative digital studio focused on premium web design, interface systems and tailored software solutions.
+          We help brands present themselves with greater confidence and a sharper visual identity.
+        </p>
+        <p class="mt-4 text-lg leading-8 text-slate-300">
+          Our goal is simple: create work that looks refined, feels modern and supports real business growth.
+        </p>
       </div>
-      <p class="text-slate-300 max-w-xl">
-        Firmanızın sektörüne göre içerikler, renkler, başlıklar ve modüller tamamen özelleştirilebilir.
+
+      <div class="rounded-[32px] border border-white/10 bg-white/5 p-8 md:p-10">
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
+            <div class="text-sm text-slate-400">Studio Focus</div>
+            <div class="mt-2 text-xl font-bold">Premium Digital Products</div>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
+            <div class="text-sm text-slate-400">Location</div>
+            <div class="mt-2 text-xl font-bold">Europe</div>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
+            <div class="text-sm text-slate-400">Core Services</div>
+            <div class="mt-2 text-xl font-bold">Web Design, UI/UX, Software</div>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-slate-900 p-5">
+            <div class="text-sm text-slate-400">Availability</div>
+            <div class="mt-2 text-xl font-bold">International Projects</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="mx-auto max-w-7xl px-6 py-24">
+    <div class="max-w-2xl">
+      <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">Founders</p>
+      <h2 class="mt-4 text-3xl font-black md:text-5xl">The team behind Vici Design</h2>
+      <p class="mt-5 text-lg leading-8 text-slate-300">
+        Different strengths, one shared direction: building stronger digital brands through thoughtful design and execution.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6 mt-12">
-      <div class="bg-slate-900 border border-white/10 rounded-[28px] p-6">
-        <div class="h-52 rounded-2xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20"></div>
-        <span class="inline-block mt-5 px-3 py-1 rounded-full text-sm bg-cyan-400/10 text-cyan-300">Kurumsal</span>
-        <h3 class="text-2xl font-bold mt-4">Şirket Tanıtım Sitesi</h3>
-        <p class="text-slate-300 mt-3 leading-7">Kurumsal kimliğinizi yansıtan güçlü ve güven veren site yapısı.</p>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      <div class="card-hover rounded-[28px] border border-white/10 bg-white/5 p-8 text-center">
+        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cyan-400/10 text-2xl font-bold text-cyan-400">H</div>
+        <h3 class="mt-5 text-2xl font-bold">Hakkı Alper Can</h3>
+        <p class="mt-2 text-sm uppercase tracking-[0.25em] text-cyan-400">Co-Founder</p>
+        <p class="mt-4 leading-7 text-slate-300">Creative direction, brand perspective and digital project vision.</p>
       </div>
 
-      <div class="bg-slate-900 border border-white/10 rounded-[28px] p-6">
-        <div class="h-52 rounded-2xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20"></div>
-        <span class="inline-block mt-5 px-3 py-1 rounded-full text-sm bg-cyan-400/10 text-cyan-300">Yazılım</span>
-        <h3 class="text-2xl font-bold mt-4">Yönetim Panelli Çözüm</h3>
-        <p class="text-slate-300 mt-3 leading-7">İş süreçlerini kolaylaştıran özel modüller ve yönetim araçları.</p>
+      <div class="card-hover rounded-[28px] border border-white/10 bg-white/5 p-8 text-center">
+        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cyan-400/10 text-2xl font-bold text-cyan-400">M</div>
+        <h3 class="mt-5 text-2xl font-bold">Muhammed Çiftci</h3>
+        <p class="mt-2 text-sm uppercase tracking-[0.25em] text-cyan-400">Co-Founder</p>
+        <p class="mt-4 leading-7 text-slate-300">Product details, interface thinking and user-focused experience design.</p>
       </div>
 
-      <div class="bg-slate-900 border border-white/10 rounded-[28px] p-6">
-        <div class="h-52 rounded-2xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20"></div>
-        <span class="inline-block mt-5 px-3 py-1 rounded-full text-sm bg-cyan-400/10 text-cyan-300">Dijital</span>
-        <h3 class="text-2xl font-bold mt-4">Ürün / Hizmet Lansman Sayfası</h3>
-        <p class="text-slate-300 mt-3 leading-7">Ürün ve hizmetlerinizi etkili şekilde sunan yüksek dönüşümlü yapılar.</p>
+      <div class="card-hover rounded-[28px] border border-white/10 bg-white/5 p-8 text-center">
+        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cyan-400/10 text-2xl font-bold text-cyan-400">E</div>
+        <h3 class="mt-5 text-2xl font-bold">Ege Adil Kartal</h3>
+        <p class="mt-2 text-sm uppercase tracking-[0.25em] text-cyan-400">Co-Founder</p>
+        <p class="mt-4 leading-7 text-slate-300">Technical execution, software structure and scalable digital systems.</p>
       </div>
     </div>
   </section>
 
-  <!-- REFERANSLAR -->
-  <section id="referanslar" class="bg-white/[0.03] py-24">
-    <div class="max-w-7xl mx-auto px-6">
+  <!-- FAQ -->
+  <section id="faq" class="bg-white/[0.03] py-24">
+    <div class="mx-auto max-w-5xl px-6">
       <div class="max-w-2xl">
-        <p class="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold">Referanslar</p>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">Müşterilerimizin yorumları</h2>
+        <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">FAQ</p>
+        <h2 class="mt-4 text-3xl font-black md:text-5xl">Frequently asked questions</h2>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6 mt-12">
-        <div class="bg-slate-900 border border-white/10 rounded-[28px] p-6">
-          <div class="text-4xl text-cyan-400">“</div>
-          <p class="text-slate-300 mt-3 leading-7">
-            Site hem görsel olarak çok profesyonel oldu hem de müşteri geri dönüşlerimiz belirgin şekilde arttı.
+      <div class="mt-12 space-y-4">
+        <details class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <summary class="cursor-pointer text-lg font-bold">What kind of projects do you take on?</summary>
+          <p class="mt-4 leading-7 text-slate-300">
+            We work on brand websites, corporate websites, landing pages, interface systems and custom software solutions.
           </p>
-          <div class="mt-5 font-semibold">Yılmaz İnşaat</div>
-        </div>
+        </details>
 
-        <div class="bg-slate-900 border border-white/10 rounded-[28px] p-6">
-          <div class="text-4xl text-cyan-400">“</div>
-          <p class="text-slate-300 mt-3 leading-7">
-            Mobil uyum ve hız konusunda beklentimizin üstünde bir sonuç aldık. Kurumsal görünüm tam istediğimiz gibiydi.
+        <details class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <summary class="cursor-pointer text-lg font-bold">Do you work internationally?</summary>
+          <p class="mt-4 leading-7 text-slate-300">
+            Yes. Vici Design is open to international collaborations and remote digital projects.
           </p>
-          <div class="mt-5 font-semibold">Nova Endüstri</div>
-        </div>
+        </details>
 
-        <div class="bg-slate-900 border border-white/10 rounded-[28px] p-6">
-          <div class="text-4xl text-cyan-400">“</div>
-          <p class="text-slate-300 mt-3 leading-7">
-            Hem tasarım hem yazılım tarafında çok düzenli bir çalışma oldu. Profesyonel bir teslim süreci yaşadık.
+        <details class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <summary class="cursor-pointer text-lg font-bold">Can you redesign an existing website?</summary>
+          <p class="mt-4 leading-7 text-slate-300">
+            Absolutely. We can improve the visual quality, structure, user experience and overall perception of your current site.
           </p>
-          <div class="mt-5 font-semibold">Delta Makine</div>
-        </div>
+        </details>
+
+        <details class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <summary class="cursor-pointer text-lg font-bold">How do we start?</summary>
+          <p class="mt-4 leading-7 text-slate-300">
+            The fastest way is to contact us via WhatsApp and briefly tell us about your project goals.
+          </p>
+        </details>
       </div>
     </div>
   </section>
 
-  <!-- ILETISIM -->
-  <section id="iletisim" class="max-w-7xl mx-auto px-6 py-24">
-    <div class="grid md:grid-cols-2 gap-10">
+  <!-- CONTACT -->
+  <section id="contact" class="mx-auto max-w-7xl px-6 py-24">
+    <div class="grid gap-10 md:grid-cols-2">
       <div>
-        <p class="text-cyan-400 uppercase tracking-[0.3em] text-sm font-bold">İletişim</p>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4">Projeniz için konuşalım</h2>
-        <p class="text-slate-300 text-lg leading-8 mt-6 max-w-xl">
-          Firmanıza özel kurumsal internet sitesi, tanıtım sayfası veya özel yazılım çözümü istiyorsanız bizimle iletişime geçin.
+        <p class="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">Contact</p>
+        <h2 class="mt-4 text-3xl font-black md:text-5xl">Let’s create something sharp together</h2>
+        <p class="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+          If you want a stronger website, a more refined interface or a premium digital presence, let’s talk.
         </p>
 
         <div class="mt-8 space-y-4 text-slate-300">
-          <div>📍 Adana, Türkiye</div>
-          <div>📞 +90 555 555 55 55</div>
-          <div>✉️ info@atlaskurumsal.com</div>
-          <div>🕒 Pazartesi - Cumartesi / 09:00 - 18:00</div>
+          <div>📍 Europe</div>
+          <div>📱 WhatsApp: +44 7529 4524477</div>
+          <div>🕒 Available for international work</div>
         </div>
 
         <div class="mt-8 flex flex-wrap gap-4">
-          <a href="https://wa.me/905555555555" target="_blank" class="bg-green-500 px-5 py-3 rounded-2xl font-bold text-white hover:scale-105 transition">
-            WhatsApp
+          <a href="https://wa.me/4475294524477" target="_blank" class="rounded-2xl bg-green-500 px-5 py-3 font-bold text-white transition hover:scale-105">
+            Message on WhatsApp
           </a>
-          <a href="tel:+905555555555" class="bg-white/10 border border-white/10 px-5 py-3 rounded-2xl font-semibold hover:bg-white/15 transition">
-            Telefon Et
-          </a>
-          <a href="mailto:info@atlaskurumsal.com" class="bg-white/10 border border-white/10 px-5 py-3 rounded-2xl font-semibold hover:bg-white/15 transition">
-            Mail Gönder
+          <a href="#home" class="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 font-semibold transition hover:bg-white/10">
+            Back to Top
           </a>
         </div>
       </div>
 
-      <form id="contactForm" class="bg-white/5 border border-white/10 rounded-[32px] p-8">
-        <div class="grid gap-5">
-          <input id="name" type="text" placeholder="Adınız Soyadınız" class="bg-slate-900 border border-white/10 rounded-2xl px-4 py-4 text-white placeholder:text-slate-500 focus:border-cyan-400 outline-none" required />
-          <input id="email" type="email" placeholder="E-posta Adresiniz" class="bg-slate-900 border border-white/10 rounded-2xl px-4 py-4 text-white placeholder:text-slate-500 focus:border-cyan-400 outline-none" required />
-          <input id="subject" type="text" placeholder="Konu" class="bg-slate-900 border border-white/10 rounded-2xl px-4 py-4 text-white placeholder:text-slate-500 focus:border-cyan-400 outline-none" required />
-          <textarea id="message" rows="5" placeholder="Mesajınızı yazın..." class="bg-slate-900 border border-white/10 rounded-2xl px-4 py-4 text-white placeholder:text-slate-500 focus:border-cyan-400 outline-none" required></textarea>
+      <div class="rounded-[32px] border border-white/10 bg-white/5 p-8">
+        <h3 class="text-2xl font-bold">Quick Contact</h3>
+        <p class="mt-3 text-slate-400">
+          The fastest way to reach us is directly via WhatsApp.
+        </p>
 
-          <button type="submit" class="bg-cyan-400 text-slate-950 px-6 py-4 rounded-2xl font-bold hover:scale-[1.02] transition">
-            Mesaj Gönder
-          </button>
+        <div class="mt-8 grid gap-5">
+          <div class="rounded-2xl border border-white/10 bg-slate-900 px-4 py-4">
+            <div class="text-sm text-slate-400">Studio</div>
+            <div class="mt-1 font-semibold text-white">Vici Design</div>
+          </div>
 
-          <p id="formResult" class="text-sm text-slate-400"></p>
+          <div class="rounded-2xl border border-white/10 bg-slate-900 px-4 py-4">
+            <div class="text-sm text-slate-400">Region</div>
+            <div class="mt-1 font-semibold text-white">Europe</div>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-slate-900 px-4 py-4">
+            <div class="text-sm text-slate-400">Primary Contact</div>
+            <div class="mt-1 font-semibold text-white">+44 7529 4524477</div>
+          </div>
+
+          <a href="https://wa.me/4475294524477" target="_blank" class="rounded-2xl bg-cyan-400 px-6 py-4 text-center font-bold text-slate-950 transition hover:scale-[1.02]">
+            Send a Message Now
+          </a>
         </div>
-      </form>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="border-t border-white/10 bg-slate-950">
-    <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-400">
-      <div>© 2026 Atlas Kurumsal. Tüm hakları saklıdır.</div>
-      <div class="flex gap-4">
-        <a href="#" class="hover:text-cyan-400">Instagram</a>
-        <a href="#" class="hover:text-cyan-400">LinkedIn</a>
-        <a href="#" class="hover:text-cyan-400">YouTube</a>
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
+      <div>© 2026 Vici Design. All rights reserved.</div>
+      <div class="flex flex-wrap gap-4">
+        <a href="#home" class="transition hover:text-cyan-400">Home</a>
+        <a href="#services" class="transition hover:text-cyan-400">Services</a>
+        <a href="#about" class="transition hover:text-cyan-400">About</a>
+        <a href="#contact" class="transition hover:text-cyan-400">Contact</a>
       </div>
     </div>
   </footer>
 
   <!-- FLOATING WHATSAPP -->
-  <a href="https://wa.me/905555555555"
-     target="_blank"
-     class="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white px-5 py-4 rounded-full shadow-2xl font-bold z-50">
+  <a
+    href="https://wa.me/4475294524477"
+    target="_blank"
+    class="fixed bottom-5 right-5 z-50 rounded-full bg-green-500 px-5 py-4 font-bold text-white shadow-2xl transition hover:scale-105 hover:bg-green-600"
+  >
     WhatsApp
   </a>
-
-  <script>
-    const form = document.getElementById('contactForm');
-    const result = document.getElementById('formResult');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const subject = document.getElementById('subject').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      if (!name || !email || !subject || !message) {
-        result.textContent = 'Lütfen tüm alanları doldurun.';
-        result.className = 'text-sm text-red-400';
-        return;
-      }
-
-      result.textContent = 'Mesajınız hazırlandı. Gerçek gönderim için formu backend veya Formspree ile bağlayabiliriz.';
-      result.className = 'text-sm text-green-400';
-      form.reset();
-    });
-  </script>
 
 </body>
 </html>
